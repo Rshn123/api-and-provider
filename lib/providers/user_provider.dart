@@ -5,22 +5,22 @@ import 'package:flutter/material.dart';
 class UserProvider extends ChangeNotifier{
 
   List<UserData> user = List<UserData>();
+  Future<UserData> userData;
   bool loading = false;
 
-  Future<List<UserData>> getUserData(context) async{
+  Future<List<UserData>> getUsersData(context) async{
     loading = true;
     user =  await getUserDatas(context);
     loading = false;
-
     notifyListeners();
     return user;
   }
 
-  deleteUserData(context, String id) async{
+  Future<UserData> fetchUserData(context, int id) async{
     loading = true;
-    await deleteUser(context,id);
+    userData = getUserData(context, id);
     loading = false;
-    notifyListeners();
+    return userData;
   }
 
 }

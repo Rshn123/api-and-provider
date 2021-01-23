@@ -1,3 +1,5 @@
+import 'package:api_provider_practice/config/routes/routes.dart';
+import 'package:api_provider_practice/constants/route_constants.dart';
 import 'package:api_provider_practice/providers/user_provider.dart';
 import 'package:api_provider_practice/screen/main_screen.dart';
 import 'package:flutter/material.dart';
@@ -20,6 +22,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
+      initialRoute: homeRoute,
+      onGenerateRoute: AppRouters.generateRoute,
       home: MainScreen(),
     );
   }
